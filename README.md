@@ -1,6 +1,7 @@
 # 📚 Portal do Aluno SENAI
----
+
 <img src="https://www.senairs.org.br/sites/default/files/styles/scale_sm/public/logos/avatares_sistema_fiergs_senai_cor.png?itok=fuuHGGm3" alt="SENAI" width="700">
+
 ---
 ## 📖 Descrição
 
