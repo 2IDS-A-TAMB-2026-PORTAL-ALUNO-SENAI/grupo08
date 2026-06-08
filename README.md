@@ -1,6 +1,7 @@
 # 📚 Portal do Aluno SENAI
+---
 <img src="https://www.senairs.org.br/sites/default/files/styles/scale_sm/public/logos/avatares_sistema_fiergs_senai_cor.png?itok=fuuHGGm3" alt="SENAI" width="700">
-
+---
 ## 📖 Descrição
 
 O Portal do Aluno SENAI é uma aplicação web desenvolvida para centralizar informações acadêmicas dos estudantes em um ambiente moderno, intuitivo e acessível. O sistema permite que os usuários realizem seu cadastro e tenham acesso a informações educacionais de forma prática e organizada.
