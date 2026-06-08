@@ -1,4 +1,5 @@
 # 📚 Portal do Aluno SENAI
+https://www.senairs.org.br/sites/default/files/styles/scale_sm/public/logos/avatares_sistema_fiergs_senai_cor.png?itok=fuuHGGm3
 
 ## 📖 Descrição
 
@@ -75,21 +76,103 @@ Esses recursos ajudam a tornar o sistema mais acessível para usuários com dife
 
 ## 👥 Desenvolvedores
 
-| Ana Rita |
+| Ana Rita 
 <br>
-| Emily Maiara |
+| Emily Maiara 
 <br>
-| Livia |
+| Livia 
 <br>
-| Maria Eduarda|
+| Maria Eduarda
 
 
 
 ---
 
-## 📄 Licença
 
-Este projeto possui finalidade acadêmica e educacional. O conteúdo pode ser utilizado para estudos, pesquisas e aprendizado, respeitando os direitos dos desenvolvedores e da instituição SENAI.
+# 📚 SENAI Student Portal
+
+## 📖 Description
+
+The SENAI Student Portal is a web application developed to centralize students' academic information in a modern, intuitive, and accessible environment. The system allows users to register and access educational information in a practical and organized way.
+
+In addition, the platform was developed with a focus on digital accessibility, offering features that assist people with different needs, ensuring a more inclusive experience for all users.
+
+---
+
+# 🚀 Features
+
+## 👨‍🎓 Student Area
+
+* New student registration
+* Friendly and intuitive interface
+* Simple and responsive navigation
+
+## ♿ Accessibility Features
+
+* Increase font size
+* Decrease font size
+* Dark mode
+* High contrast mode
+* Automatic page content reading
+* Integration with VLibras for Brazilian Sign Language (Libras) translation
+
+## 🎨 Modern Interface
+
+* Responsive layout for different devices
+* Design built with Bootstrap 5
+* Custom CSS-styled components
+* Icons provided by Font Awesome
+
+---
+
+# 🛠️ Technologies Used
+
+## Front-end
+
+* HTML5
+* CSS3
+* JavaScript
+* Bootstrap 5.3
+* Font Awesome 6
+
+## Accessibility Resources
+
+* Web Speech API (Text-to-Speech)
+* VLibras
+
+---
+
+# 📱 Responsiveness
+
+The system was developed to work properly on:
+
+* Desktop computers
+* Laptops
+* Tablets
+* Smartphones
+
+---
+
+# ♿ Accessibility
+
+With digital inclusion in mind, the SENAI Student Portal provides:
+
+* Font size control
+* Dark theme
+* High contrast mode
+* Automatic content reading
+* VLibras integration for Brazilian Sign Language (Libras) translation
+
+These features help make the system more accessible for users with different needs.
+
+---
+
+# 👥 Developers
+
+* Ana Rita
+* Emily Maiara
+* Livia
+* Maria Eduarda
 
 ---
 
