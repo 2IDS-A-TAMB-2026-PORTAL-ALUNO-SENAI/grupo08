@@ -77,14 +77,10 @@ Esses recursos ajudam a tornar o sistema mais acessível para usuários com dife
 
 
 ## 👥 Desenvolvedores
-
-| Ana Rita 
-<br>
-| Emily Maiara 
-<br>
-| Livia 
-<br>
-| Maria Eduarda
+* Ana Rita Boiago
+* Emily Maiara
+* Livia Bispo
+* Maria Eduarda
 
 
 
@@ -92,7 +88,8 @@ Esses recursos ajudam a tornar o sistema mais acessível para usuários com dife
 
 
 # 📚 SENAI Student Portal
-
+<img src="https://www.senairs.org.br/sites/default/files/styles/scale_sm/public/logos/avatares_sistema_fiergs_senai_cor.png?itok=fuuHGGm3" alt="SENAI" width="700">
+---
 ## 📖 Description
 
 The SENAI Student Portal is a web application developed to centralize students' academic information in a modern, intuitive, and accessible environment. The system allows users to register and access educational information in a practical and organized way.
@@ -171,9 +168,9 @@ These features help make the system more accessible for users with different nee
 
 # 👥 Developers
 
-* Ana Rita
+* Ana Rita Boiago
 * Emily Maiara
-* Livia
+* Livia Bispo
 * Maria Eduarda
 
 ---
