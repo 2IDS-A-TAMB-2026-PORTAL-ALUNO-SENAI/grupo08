@@ -9,12 +9,12 @@ Além disso, a plataforma foi desenvolvida com foco em acessibilidade digital, o
 ---
 
 ## 🚀 Funcionalidades
-
+---
 ### 👨‍🎓 Área do Aluno
 - Cadastro de novos alunos;
 - Interface amigável e intuitiva;
 - Navegação simples e responsiva.
-
+---
 ### ♿ Recursos de Acessibilidade
 - Aumento de fonte;
 - Redução de fonte;
@@ -22,7 +22,7 @@ Além disso, a plataforma foi desenvolvida com foco em acessibilidade digital, o
 - Alto contraste;
 - Leitura automática do conteúdo da página;
 - Integração com VLibras para tradução em Libras.
-
+---
 ### 🎨 Interface Moderna
 - Layout responsivo para diferentes dispositivos;
 - Design utilizando Bootstrap 5;
@@ -75,10 +75,12 @@ Esses recursos ajudam a tornar o sistema mais acessível para usuários com dife
 
 ## 👥 Desenvolvedores
 
-| Nome |
 | Ana Rita |
+<br>
 | Emily Maiara |
+<br>
 | Livia |
+<br>
 | Maria Eduarda|
 
 
