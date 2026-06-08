@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+   
+<!-- MENU -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom px-3">
+    
+    <!-- LOGO -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/SENAI_logo_2024.png" width="50%">
+      
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+         
+                </a>
+            </li>
+        </ul>
+
+        <!--BOTÃO DE ACESSIBILIDADE-->
+          
+          <button id="accessibility-btn" aria-label="Abrir acessibilidade" >
+            <i class="fa-solid fa-gear"></i>
+          </button>
+        
+      <!-- PAINEL -->
+      <!-- AUMENTAR E DIMINUIR FONTE -->
+      <div id="accessibility-panel">
+        <button onclick="increaseFont()">
+          <i class="fa-solid fa-magnifying-glass-plus"></i> Aumentar Fonte
+        </button>
+        <button onclick="decreaseFont()">
+          <i class="fa-solid fa-magnifying-glass-minus"></i> Diminuir Fonte
+        </button>
+
+        <!-- TEMA CLARO E ESCURO -->
+        <button id="theme-toggle">
+          <i style="color: #fff" id="icon-moon" class="fa-solid fa-moon"></i>Alterar tema
+        </button>
+
+        <!-- ALTO CONTRASTE -->
+        <button onclick="toggleContrast()">
+          <i class="fa-solid fa-adjust"></i> Alto Contraste </button>
+
+          <!-- LER SITE -->
+        <button onclick="readPage()">
+          <i class="fa-solid fa-volume-high"></i> Ler Site
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <style>
+    /* BOTÃO ENGRENAGEM */
+
+        .navbar-custom {
+        background-color: rgb(78, 124, 203) !important;
+    }
+
+    #accessibility-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 12px;
+      background: #2957A4;
+      color: rgb(255, 255, 255);
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #accessibility-btn:hover {
+      background: #2957A4;
+      transform: rotate(90deg);
+    }
+
+    /* PAINEL */
+    #accessibility-panel {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 260px;
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      display: none;
+      z-index: 9999;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    #accessibility-panel button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #111827;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    #accessibility-panel button:hover {
+      background: #2957A4;
+    }
+
+    /* MODO ESCURO ATIVADO (.dark-mode) */
+    /* ==========================
+   MODO ESCURO
+========================== */
+
+body.dark-mode{
+    background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+    color: #ffffff !important;
+}
+
+/* Navbar */
+body.dark-mode .navbar-custom{
+    background: #0f172a !important;
+}
+
+/* Card do formulário */
+body.dark-mode .card-formulario{
+    background: #1e293b !important;
+    color: white !important;
+}
+
+/* Título */
+body.dark-mode .titulo-form h2{
+    color: #60a5fa !important;
+}
+
+body.dark-mode .titulo-form p{
+    color: #cbd5e1 !important;
+}
+
+/* Labels */
+body.dark-mode .form-usuario{
+    color: #ffffff !important;
+}
+
+/* Inputs */
+body.dark-mode .form-control,
+body.dark-mode .form-select{
+    background: #334155 !important;
+    color: #ffffff !important;
+    border: 2px solid #475569 !important;
+}
+
+/* Placeholder */
+body.dark-mode .form-control::placeholder{
+    color: #cbd5e1 !important;
+}
+
+/* Campo email */
+body.dark-mode .input-group-text{
+    background: #334155 !important;
+    color: white !important;
+    border: 2px solid #475569 !important;
+}
+
+/* Checkbox */
+body.dark-mode .form-check-label{
+    color: #ffffff !important;
+}
+
+body.dark-mode .form-check-input{
+    background-color: #334155 !important;
+    border-color: #60a5fa !important;
+}
+
+body.dark-mode .form-check-input:checked{
+    background-color: #60a5fa !important;
+}
+
+/* Botão principal */
+body.dark-mode .btn-primary{
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    ) !important;
+
+    border: none !important;
+    color: white !important;
+}
+
+body.dark-mode .btn-primary:hover{
+    box-shadow: 0 10px 20px rgba(59,130,246,.3);
+}
+
+/* Painel de acessibilidade */
+body.dark-mode #accessibility-panel{
+    background: #1e293b !important;
+}
+
+body.dark-mode #accessibility-panel button{
+    background: #334155 !important;
+    color: white !important;
+}
+
+body.dark-mode #accessibility-panel button:hover{
+    background: #2563eb !important;
+}
+
+/* Textos gerais */
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode a,
+body.dark-mode label,
+body.dark-mode li,
+body.dark-mode td,
+body.dark-mode th{
+    color: #ffffff !important;
+}
+
+/* Títulos */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6{
+    color: #60a5fa !important;
+}
+
+
+/* ==========================
+   TEMA PADRÃO
+========================== */
+
+body{
+    background: linear-gradient(135deg, #2957a4, #4f8cff);
+    min-height: 100vh;
+    color: #000;
+}
+
+header{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+p,
+span,
+li,
+a,
+label,
+td,
+th{
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    color:#2957a4;
+}
+
+/* ==========================
+   ALTO CONTRASTE
+========================== */
+
+body.high-contrast{
+    background:#000 !important;
+    color:#ffff00 !important;
+}
+
+body.high-contrast .navbar-custom{
+    background:#000 !important;
+    border-bottom:3px solid #ffff00 !important;
+}
+
+body.high-contrast .card-formulario{
+    background:#000 !important;
+    border:3px solid #ffff00 !important;
+    box-shadow:none !important;
+}
+
+body.high-contrast .titulo-form h2{
+    color:#ffff00 !important;
+}
+
+body.high-contrast .titulo-form p{
+    color:#fff !important;
+}
+
+body.high-contrast .form-usuario{
+    color:#ffff00 !important;
+}
+
+body.high-contrast .form-control,
+body.high-contrast .form-select{
+    background:#000 !important;
+    color:#ffff00 !important;
+    border:2px solid #ffff00 !important;
+}
+
+body.high-contrast .input-group-text{
+    background:#000 !important;
+    color:#ffff00 !important;
+    border:2px solid #ffff00 !important;
+}
+
+body.high-contrast .btn-primary{
+    background:#ffff00 !important;
+    color:#000 !important;
+    border:2px solid #ffff00 !important;
+}
+
+body.high-contrast #accessibility-panel{
+    background:#000 !important;
+    border:2px solid #ffff00 !important;
+}
+
+body.high-contrast #accessibility-panel button{
+    background:#000 !important;
+    color:#ffff00 !important;
+    border:1px solid #ffff00 !important;
+}
+
+body.high-contrast p,
+body.high-contrast span,
+body.high-contrast label,
+body.high-contrast li,
+body.high-contrast td,
+body.high-contrast th,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6{
+    color:#ffff00 !important;
+}
+
+    /* FORMULARIO */
+   /* Fundo da página */
+body{
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* Centralização */
+.container-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+/* Card */
+.card-formulario{
+    width: 100%;
+    max-width: 1100px;
+    background: #ffffff92;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.15),
+        0 5px 15px rgba(0,0,0,0.08);
+
+    transition: .3s ease;
+}
+
+.card-formulario:hover{
+    transform: translateY(-3px);
+}
+
+/* Cabeçalho */
+.titulo-form{
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo-form h2{
+    font-weight: 700;
+    color: #2957a4;
+    margin-bottom: 10px;
+}
+
+.titulo-form p{
+    color: #777;
+}
+
+/* Labels */
+.form-usuario{
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+/* Inputs */
+.form-control,
+.form-select{
+    border-radius: 15px;
+    border: 2px solid #e5e5e5;
+    padding: 12px 15px;
+    transition: .3s;
+}
+
+/* Focus */
+.form-control:focus,
+.form-select:focus{
+    border-color: #2957a4;
+    box-shadow: 0 0 15px rgba(41,87,164,.20);
+}
+
+/* Ícone do email */
+.input-group-text{
+    border-radius: 15px 0 0 15px;
+    color: white;
+    border: none;
+}
+
+/* Checkbox */
+.form-check{
+    padding-top: 10px;
+}
+
+.form-check-input:checked{
+    background-color: #2957a4;
+    border-color: #2957a4;
+}
+
+/* Botão */
+.btn-primary{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(
+        135deg,
+        #2957a4,
+        #4f8cff
+    );
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: .5px;
+    transition: .3s;
+}
+
+.btn-primary:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(41,87,164,.3);
+}
+
+/* Responsividade */
+@media(max-width:768px){
+
+    .card-formulario{
+        padding: 25px;
+    }
+
+    .titulo-form h2{
+        font-size: 1.7rem;
+    }
+
+}
+  </style>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const accessibilityBtn =
+      document.getElementById('accessibility-btn');
+    const accessibilityPanel =
+      document.getElementById('accessibility-panel');
+
+    /* ABRIR PAINEL */
+    accessibilityBtn.addEventListener('click', () => {
+      accessibilityPanel.style.display =
+        accessibilityPanel.style.display === 'block'
+          ? 'none'
+          : 'block';
+    });
+
+    /* FONTE */
+    function increaseFont() {
+      const elementos = document.querySelectorAll('*');
+      elementos.forEach((el) => {
+        const estilo = window.getComputedStyle(el);
+        const tamanhoAtual =
+          parseFloat(estilo.fontSize);
+        if (!isNaN(tamanhoAtual)) {
+          el.style.setProperty(
+            'font-size',
+            (tamanhoAtual + 2) + 'px',
+            'important'
+          );
+        }
+      });
+    }
+
+    function decreaseFont() {
+      const elementos = document.querySelectorAll('*');
+      elementos.forEach((el) => {
+        const estilo = window.getComputedStyle(el);
+        const tamanhoAtual =
+          parseFloat(estilo.fontSize);
+        if (!isNaN(tamanhoAtual)
+          && tamanhoAtual > 2) {
+          el.style.setProperty(
+            'font-size',
+            (tamanhoAtual - 2) + 'px',
+            'important'
+          );
+        }
+      });
+
+    }
+
+    /* TEMA */
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+    
+    document.body.classList.toggle('light');
+    document.getElementById('theme-toggle')
+  .addEventListener('click', toggleTheme);
+
+    /* CONTRASTE */
+    function toggleContrast() {
+
+      document.body.classList.toggle('high-contrast');
+
+    }
+
+    /* LEITOR */
+    function readPage() {
+      speechSynthesis.cancel();
+      let text = '';
+      const elements =
+        document.querySelectorAll(
+          'h1, h2, h3, p, label, a'
+        );
+
+      elements.forEach(element => {
+        text += element.innerText + '. ';
+      });
+
+      const speech =
+        new SpeechSynthesisUtterance(text);
+
+      speech.lang = 'pt-BR';
+
+      window.speechSynthesis.speak(speech);
+
+    }
+  </script>
+                
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-form">
+
+    <div class="card-formulario">
+
+        <div class="titulo-form">
+            <h2>Cadastro de Aluno</h2>
+            <p>Preencha os dados abaixo para realizar sua inscrição.</p>
+        </div>
+
+        <form class="row g-3" id="formulario">
+
+          <form class="row g-3 m-5" id="formulario">
+        <div class="col-md-4">
+            <label for="nome" class="form-usuario">Nome Completo:</label>
+            <input type="text"
+                   class="form-control"
+                   id="nome">
+        </div>
+        <div class="col-md-4">
+            <label for="telefone" class="form-usuario">Telefone:</label>
+            <input type="text"
+                   class="form-control"
+                   id="telefone">
+        </div>
+        <div class="col-md-4">
+        <label  for="cpf" class="form-usuario">CPF: </label>
+        <input type="text" id="cpf" class="form-control">
+        </div>
+
+        <div class="col-md-4">
+        <label for="data_nasc" class="form-usuario">Data de nascimento:</label>
+        <input type="date" id="data_nascimento" class="form-control">
+        </div>
+
+        <div class="col-md-4">
+            <label for="email" class="form-usuario">Email:</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    @
+                </span>
+                <input type="text"
+                       class="form-control"
+                       id="email">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="cidade" class="form-usuario">Cidade:</label>
+            <input type="text"
+                   class="form-control"
+                   id="cidade">
+        </div>
+        <div class="col-md-3">
+            <label for="curso" class="form-usuario">
+                Curso:
+            </label>
+            <select class="form-select" id="curso">
+                <option selected disabled value="">
+                    Escolha...
+                </option>
+                <option>Desenvolvimento de sistemas</option>
+                <option>Mecatrônica</option>
+                <option>Elétrica</option>
+                <option>Soldagem</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="turno" class="form-usuario">
+                Turno
+            </label>
+            <select class="form-select" id="turno">
+                <option selected disabled value="">
+                    Escolha...
+                </option>
+                <option>Manhã</option>
+                <option>Tarde</option>
+                <option>Noite</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+
+                <input class="form-check-input"
+                       type="checkbox"
+                       id="termos">
+
+                <label class="form-check-label" for="termos">Aceito os termos e condições </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary"
+                    type="submit">Enviar Formulário</button>
+        </div>
+    </form>
+
+        </form>
+
+    </div>
+
+</div>
+
+    <script>
+        const formulario = document.getElementById("formulario");
+
+        formulario.addEventListener("submit", verificar_campos);
+
+        function verificar_campos(event){
+            event.preventDefault();
+            const nome = document.getElementById("nome").value;
+            const telefone = document.getElementById("telefone").value;
+            const usuario = document.getElementById("email").value;
+            const cidade = document.getElementById("cidade").value;
+            const curso = document.getElementById("curso").value;
+            const turno = document.getElementById("turno").value;
+            const termos = document.getElementById("termos").checked;
+
+            if(
+                nome.trim() === "" ||
+                telefone.trim() === "" ||
+                usuario.trim() === "" ||
+                cidade.trim() === "" ||
+                curso === "" ||
+                turno.trim() === "" ||
+                !termos
+            ){
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Preencha todos os campos corretamente!',
+                    icon: 'error'
+                });
+            } else {
+
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: 'Cadastro realizado com sucesso!',
+                    icon: 'success'
+                });
+
+                formulario.reset();
+            }
+       }
+    </script>
+
+
+    <script src="https://unpkg.com/imask"></script>
+
+<script>
+    const telefoneInput = document.getElementById('telefone');
+    const cpfInput = document.getElementById('cpf');
+
+    IMask(telefoneInput, {
+        mask: [
+            {
+                mask: '(00) 0000-0000' // telefone fixo
+            },
+            {
+                mask: '(00) 00000-0000' // celular
+            }
+        ]
+    });
+
+    IMask(cpfInput, {
+        mask: '000.000.000-00'
+    });
+
+    function mostrarErro(titulo, mensagem) {
+        Swal.fire({
+            icon: "error",
+            title: titulo,
+            text: mensagem,
+        });
+    }
+
+    document.getElementById('formulario').addEventListener('submit',
+        function (event) {
+
+            const telefone = telefoneInput.value.trim();
+            const cpf = cpfInput.value.trim();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const dataNascimento = document.getElementById('data_nascimento').value.trim();
+
+            const cpfNumeros = cpf.replace(/\D/g, '');
+            const telefoneNumeros = telefone.replace(/\D/g, '');
+
+            if (nome.length < 3) {
+                event.preventDefault();
+                mostrarErro('Nome inválido', 'Informe o nome completo!');
+                return;
+            }
+
+            // email tem que ter @
+            if (!email.includes('@') || !email.includes('.')) {
+                event.preventDefault();
+                mostrarErro('Email inválido', 'Informe um email válido!');
+                return;
+            }
+
+            // telefone deve ter 10 ou 11 dígitos
+            if (telefoneNumeros.length < 10 || telefoneNumeros.length > 11) {
+                event.preventDefault();
+                mostrarErro('Telefone inválido', 'Informe um telefone válido!');
+                return;
+            }
+
+            // CPF deve ter 11 dígitos
+            if (cpfNumeros.length !== 11) {
+                event.preventDefault();
+                mostrarErro('CPF inválido', 'Informe um CPF válido!');
+                return;
+            }
+
+            // data de nascimento
+            const nascimento = new Date(dataNascimento);
+            const hoje = new Date();
+
+            hoje.setHours(0, 0, 0, 0);
+            nascimento.setHours(0, 0, 0, 0);
+
+            if (!dataNascimento || nascimento >= hoje) {
+                event.preventDefault();
+                mostrarErro(
+                    'Data de nascimento inválida',
+                    'Informe uma data correta'
+                );
+                return;
+            }
+        }
+    );
+</script>
+    </script>
+        <!-- JAVASCRIPT FILES -->
+        <script src="<?= base_url('assets/js/jquery.min.js')?>"></script>
+        <script src="<?= base_url('assets/js/bootstrap.min.js')?>"></script>
+        <script src="<?= base_url('assets/js/jquery.sticky.js')?>"></script>
+        <script src="<?= base_url('assets/js/click-scroll.js')?>"></script>
+        <script src="<?= base_url('assets/js/counter.js')?>"></script>
+        <script src="<?= base_url('assets/js/custom.js')?>"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+  <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+      </div>
+  </div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+  </body>
+</html>
