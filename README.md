@@ -12,7 +12,7 @@ Além disso, a plataforma foi desenvolvida com foco em acessibilidade digital, o
 ---
 
 ## 🚀 Funcionalidades
----
+
 ### 👨‍🎓 Área do Aluno
 - Cadastro de novos alunos;
 - Interface amigável e intuitiva;
